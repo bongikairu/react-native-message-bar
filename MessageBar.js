@@ -40,7 +40,9 @@ class MessageBar extends Component {
 
   setNewState(state) {
     // Set the new state, this is triggered when the props of this MessageBar changed
-    this.setState(this.getStateByProps(state));
+    if(JSON.stringify(state)!="{}") {
+      this.setState(this.getStateByProps(state));
+    }
 
     // Apply the colors of the alert depending on its alertType
     this._applyAlertStylesheet(state.alertType);
